@@ -27,7 +27,7 @@ class _MainWrapperState extends State<MainWrapper> {
       ),
       body: PageView(
         controller: _myPage,
-        children: const [
+        children: [
           HomePage(),
           MarketViewPage(),
           ProfilePage(),
