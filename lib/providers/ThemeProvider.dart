@@ -23,7 +23,7 @@ class MyThemes {
     unselectedWidgetColor: Colors.white70,
     primaryColorLight: Colors.black,
     scaffoldBackgroundColor: Colors.grey.shade900,
-    primaryColor: Colors.blueAccent,
+    primaryColor: Colors.blueAccent[700],
     secondaryHeaderColor: Colors.white,
     iconTheme: const IconThemeData(color: Colors.black, opacity: 0.9),
   );
