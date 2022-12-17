@@ -11,13 +11,11 @@ class HomePageView extends StatefulWidget {
 
 class _HomePageViewState extends State<HomePageView> {
   var images = [
+    'assets/images/i0.png',
     'assets/images/i1.png',
     'assets/images/i2.png',
     'assets/images/i3.png',
-    'assets/images/i4.png',
   ];
-
-  // start images name from 0 , fucking 0 !
 
   @override
   void dispose() {

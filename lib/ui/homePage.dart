@@ -1,13 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:marquee/marquee.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:task_02/ui/ui_helper/ThemeSwitcher.dart';
 import 'package:task_02/ui/ui_helper/homePageView.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final PageController _pageViewController = PageController(
     initialPage: 0,
   );
+
+  var defaultChoiseIndex = 0;
+
+  final List<String> _choiceList = [
+    'Top MarketCaps',
+    'Top Gainers',
+    'Top Losers'
+  ];
+
   @override
   Widget build(BuildContext context) {
     var primaryColor = Theme.of(context).primaryColor;
@@ -59,6 +75,82 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
                   ),
+                ),
+                /*     SizedBox(
+                  width: double.infinity,
+                  height: 30,
+                  child: Marquee(
+                    text: '** this is a place for news in application ** ',
+                    style: textTheme.bodySmall,
+                  ),
+                  // TextTheme textTheme = Theme.of(context).textTheme;
+                ),  */
+                Padding(
+                  padding: const EdgeInsets.only(left: 5, right: 5, top: 5),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.all(17),
+                            backgroundColor: Colors.red.shade700,
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(20),
+                              ),
+                            ),
+                          ),
+                          child: const Text('Buy'),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.all(17),
+                            backgroundColor: Colors.green.shade700,
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(20),
+                              ),
+                            ),
+                          ),
+                          onPressed: () {},
+                          child: const Text('Sell'),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: 5,
+                    right: 5,
+                  ),
+                  child: Wrap(
+                      spacing: 8,
+                      children: List.generate(
+                        _choiceList.length,
+                        (index) {
+                          return ChoiceChip(
+                            label: Text(
+                              _choiceList[index],
+                              style: textTheme.titleSmall,
+                            ),
+                            selected: defaultChoiseIndex == index,
+                            selectedColor: Colors.blue,
+                            onSelected: (value) {
+                              setState(() {
+                                defaultChoiseIndex =
+                                    value ? index : defaultChoiseIndex;
+                              });
+                            },
+                          );
+                        },
+                      )),
                 ),
               ],
             ),
