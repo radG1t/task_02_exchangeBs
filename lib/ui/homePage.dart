@@ -143,10 +143,12 @@ class _HomePageState extends State<HomePage> {
                             selected: defaultChoiseIndex == index,
                             selectedColor: Colors.blue,
                             onSelected: (value) {
-                              setState(() {
-                                defaultChoiseIndex =
-                                    value ? index : defaultChoiseIndex;
-                              });
+                              setState(
+                                () {
+                                  defaultChoiseIndex =
+                                      value ? index : defaultChoiseIndex;
+                                },
+                              );
                             },
                           );
                         },
