@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:task_02/providers/ThemeProvider.dart';
+import 'package:task_02/providers/cryptoDataProvider.dart';
 import 'package:task_02/ui/mainWrapper.dart';
 import 'package:task_02/ui/ui_helper/ThemeSwitcher.dart';
 
@@ -12,6 +13,9 @@ void main() {
     providers: [
       ChangeNotifierProvider(
         create: (context) => ThemeProvider(),
+      ),
+      ChangeNotifierProvider(
+        create: (context) => CryptoDataProvider(),
       ),
     ],
     child: const MyMaterialApp(),

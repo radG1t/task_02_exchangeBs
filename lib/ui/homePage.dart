@@ -169,8 +169,13 @@ class _HomePageState extends State<HomePage> {
                   builder: (context, cryptoDataProvider, child) {
                     switch (cryptoDataProvider.state.status) {
                       case Status.LOADING:
+                        return Text(cryptoDataProvider.state.message);
                       case Status.COMPLETED:
+                        return Text('done');
                       case Status.ERRPR:
+                        return Text(cryptoDataProvider.state.message);
+                      default:
+                        return Container();
                     }
                   },
                 ),
