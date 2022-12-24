@@ -1,5 +1,3 @@
-import 'package:task_02/models/CryptoModel/Status.dart';
-
 class ResponseModel<T> {
   late Status status;
   late T data;
@@ -15,4 +13,4 @@ class ResponseModel<T> {
   }
 }
 
-enum status { LOADING, COMPLETED, ERROR }
+enum Status { LOADING, COMPLETED, ERROR }

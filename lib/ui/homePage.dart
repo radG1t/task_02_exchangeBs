@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:marquee/marquee.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:task_02/network/responseModel.dart';
 import 'package:task_02/providers/cryptoDataProvider.dart';
 import 'package:task_02/ui/ui_helper/ThemeSwitcher.dart';
 import 'package:task_02/ui/ui_helper/homePageView.dart';
@@ -172,7 +173,7 @@ class _HomePageState extends State<HomePage> {
                         return Text(cryptoDataProvider.state.message);
                       case Status.COMPLETED:
                         return Text('done');
-                      case Status.ERRPR:
+                      case Status.ERROR:
                         return Text(cryptoDataProvider.state.message);
                       default:
                         return Container();
