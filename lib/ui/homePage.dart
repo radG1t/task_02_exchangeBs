@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:marquee/marquee.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:task_02/providers/cryptoDataProvider.dart';
 import 'package:task_02/ui/ui_helper/ThemeSwitcher.dart';
 import 'package:task_02/ui/ui_helper/homePageView.dart';
 
@@ -23,6 +25,15 @@ class _HomePageState extends State<HomePage> {
     'Top Gainers',
     'Top Losers'
   ];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    final cryptoProvider =
+        Provider.of<CryptoDataProvider>(context, listen: false);
+    cryptoProvider.getTopMarketCapData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -153,6 +164,15 @@ class _HomePageState extends State<HomePage> {
                           );
                         },
                       )),
+                ),
+                Consumer<CryptoDataProvider>(
+                  builder: (context, cryptoDataProvider, child) {
+                    switch (cryptoDataProvider.state.status) {
+                      case Status.LOADING:
+                      case Status.COMPLETED:
+                      case Status.ERRPR:
+                    }
+                  },
                 ),
               ],
             ),
