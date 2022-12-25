@@ -302,7 +302,8 @@ class _HomePageState extends State<HomePage> {
                           return ListView.separated(
                               itemBuilder: ((context, index) {
                                 var number = index + 1;
-                                var tokenId = model![index].id;
+                                var tokenId = model[index].id;
+
                                 return SizedBox(
                                   height: height * 0.075,
                                   child: Row(
