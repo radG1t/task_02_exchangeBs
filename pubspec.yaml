@@ -45,6 +45,7 @@ dependencies:
   dio: ^4.0.6
   shimmer: ^2.0.0
   cached_network_image: ^3.2.3
+  flutter_svg: ^1.1.6
 
 dev_dependencies:
   flutter_test:

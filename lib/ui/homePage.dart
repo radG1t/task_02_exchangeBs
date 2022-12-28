@@ -1,9 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:marquee/marquee.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:task_02/helpers/decimalRounder.dart';
 import 'package:task_02/models/CryptoModel/AllCryptoModel.dart';
 import 'package:task_02/models/CryptoModel/CryptoData.dart';
 import 'package:task_02/network/responseModel.dart';
@@ -303,7 +305,8 @@ class _HomePageState extends State<HomePage> {
                               itemBuilder: ((context, index) {
                                 var number = index + 1;
                                 var tokenId = model[index].id;
-
+                                DecimalRounder.setColorFilter(
+                                    model[index].quotes![0].percentChange24h);
                                 return SizedBox(
                                   height: height * 0.075,
                                   child: Row(
@@ -352,6 +355,10 @@ class _HomePageState extends State<HomePage> {
                                                 style: textTheme.labelSmall)
                                           ],
                                         ),
+                                      ),
+                                      Flexible(
+                                        child: SvgPicture.network(
+                                            "https://s3.coinmarketcap.com/generated/sparklines/web/30d/2781/$tokenId.svg"),
                                       )
                                     ],
                                   ),
