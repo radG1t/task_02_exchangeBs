@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:task_02/providers/ThemeProvider.dart';
 import 'package:task_02/providers/cryptoDataProvider.dart';
 import 'package:task_02/ui/mainWrapper.dart';
+import 'package:task_02/ui/signUpScreen.dart';
 import 'package:task_02/ui/ui_helper/ThemeSwitcher.dart';
 
 void main() {
@@ -40,7 +41,8 @@ class _MyMaterialAppState extends State<MyMaterialApp> {
         debugShowCheckedModeBanner: false,
         home: const Directionality(
           textDirection: TextDirection.ltr,
-          child: MainWrapper(),
+          // child: MainWrapper(),
+          child: SignUpScreen(),
         ),
       );
     });
