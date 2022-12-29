@@ -6,12 +6,14 @@ class BottomNav extends StatelessWidget {
   BottomNav({super.key, required this.controller});
   @override
   Widget build(BuildContext context) {
+    var primaryColor = Theme.of(context).primaryColor;
+
     return BottomAppBar(
       shape: CircularNotchedRectangle(),
-      color: Colors.amber,
+      color: primaryColor,
       notchMargin: 7, //The bottom nav distance value from the floating action
       child: SizedBox(
-        height: 63,
+        height: 55,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

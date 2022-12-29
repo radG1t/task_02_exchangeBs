@@ -27,4 +27,42 @@ class CryptoDataProvider extends ChangeNotifier {
       state = ResponseModel.error("check your network.");
     }
   }
+
+  getTopGainersData() async {
+    state = ResponseModel.loading("is loading .. ");
+
+    try {
+      response = await apiProivder.getTopGainerData();
+
+      if (response.statusCode == 200) {
+        datafuter = AllCryptoModel.fromJson(response.data);
+        state = ResponseModel.completed(datafuter);
+      } else {
+        state = ResponseModel.error("something wrong!");
+      }
+
+      notifyListeners();
+    } catch (e000) {
+      state = ResponseModel.error("check your network.");
+    }
+  }
+
+  getToplosersData() async {
+    state = ResponseModel.loading("is loading .. ");
+
+    try {
+      response = await apiProivder.getTopLoserData();
+
+      if (response.statusCode == 200) {
+        datafuter = AllCryptoModel.fromJson(response.data);
+        state = ResponseModel.completed(datafuter);
+      } else {
+        state = ResponseModel.error("something wrong!");
+      }
+
+      notifyListeners();
+    } catch (e000) {
+      state = ResponseModel.error("check your network.");
+    }
+  }
 }
