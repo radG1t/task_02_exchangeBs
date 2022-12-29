@@ -138,8 +138,8 @@ class _MarketViewPageState extends State<MarketViewPage> {
                             },
                             itemCount: model!.length,
                             itemBuilder: (context, index) {
-                              //   var number = index + 1;
-                              var number = index;
+                              var number = index + 1;
+
                               var tokenId = model[index].id;
 
                               // get filter color for chart (green or red)
@@ -168,7 +168,7 @@ class _MarketViewPageState extends State<MarketViewPage> {
                                 padding: const EdgeInsets.only(top: 8.0),
                                 child: InkWell(
                                   onTap: () {
-                                    // Navigator.push(context, MaterialPageRoute(builder: (context) => TokenDetailPage(cryptoData: model[index])));
+                                    //   Navigator.push(context, MaterialPageRoute(builder: (context) => TokenDetailPage(cryptoData: model[index])));
                                   },
                                   child: SizedBox(
                                     height: height * 0.075,
