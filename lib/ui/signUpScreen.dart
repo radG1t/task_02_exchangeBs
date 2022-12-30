@@ -14,6 +14,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final _fromkey = GlobalKey<FormState>();
+  final _fromkey2 = GlobalKey<FormState>();
+  final _fromkey3 = GlobalKey<FormState>();
   bool _isObsecure = true;
 
   @override
@@ -100,6 +102,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: height * 0.02,
                   ),
                   Form(
+                    key: _fromkey2,
                     child: TextFormField(
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(
@@ -127,6 +130,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: height * 0.02,
                   ),
                   Form(
+                    key: _fromkey3,
                     child: TextFormField(
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -165,7 +169,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: height * 0.01,
                   ),
                   Text(
-                    'Creating an account means you\'re okay with our Terms of Services and our Privacy Policy',
+                    'Creating an account means you\'re okay with our Terms of Services and our Privacy Policy.',
                     style: GoogleFonts.ubuntu(
                         fontSize: 15, color: Colors.grey, height: 1.5),
                     textAlign: TextAlign.center,
@@ -195,11 +199,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
         ),
         onPressed: () {
-          if (_fromkey.currentState!.validate()) {
+          if (_fromkey.currentState!.validate() ||
+              _fromkey2.currentState!.validate() ||
+              _fromkey3.currentState!.validate()) {
             //   userProvider.callRegisterApi(nameController.text, emailController.text, passwordController.text);
           }
         },
-        child: const Text('Sign Up'),
+        child: const Text(
+          'Sign Up',
+          // style: GoogleFonts.ubuntu(
+          //     fontSize: height * 0.035,
+          //     color: Theme.of(context).unselectedWidgetColor),
+        ),
       ),
     );
   }

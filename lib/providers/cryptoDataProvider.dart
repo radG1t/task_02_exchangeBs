@@ -5,7 +5,7 @@ import 'package:task_02/network/apiProvider.dart';
 import 'package:task_02/network/responseModel.dart';
 
 class CryptoDataProvider extends ChangeNotifier {
-  ApiProivder apiProivder = ApiProivder();
+  ApiProvider apiProivder = ApiProvider();
   late AllCryptoModel datafuter;
   late ResponseModel state;
   var response;
