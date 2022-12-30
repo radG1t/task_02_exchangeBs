@@ -117,7 +117,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         if (value == null || value.isEmpty) {
                           return 'Please enter gmail';
                         } else if (!value.endsWith('@gmail.com')) {
-                          return 'Please enter a valid address.';
+                          return 'Please enter a valid address';
                         }
                         return null;
                       },
@@ -128,7 +128,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   Form(
                     child: TextFormField(
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
                             Radius.circular(15),
@@ -136,18 +136,70 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         hintText: 'password',
                         prefixIcon: Icon(Icons.lock_outline),
-                        //   suffixIcon : IconButton(icon:Icon(_isObsecure ? I) ,),
+                        suffixIcon: IconButton(
+                          icon: Icon(_isObsecure
+                              ? Icons.visibility_off
+                              : Icons.visibility),
+                          onPressed: () {
+                            setState(() {
+                              _isObsecure = !_isObsecure;
+                            });
+                          },
+                        ),
                       ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "try to enter your password";
+                        } else if (value.length < 7) {
+                          return "at least enter 6 characters";
+                        } else if (value.length > 13) {
+                          return "maximum length of character is 13";
+                        }
+                        return null;
+                      },
                       controller: passwordController,
                       obscureText: _isObsecure,
                     ),
                   ),
+                  SizedBox(
+                    height: height * 0.01,
+                  ),
+                  Text(
+                    'Creating an account means you\'re okay with our Terms of Services and our Privacy Policy',
+                    style: GoogleFonts.ubuntu(
+                        fontSize: 15, color: Colors.grey, height: 1.5),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(
+                    height: height * 0.02,
+                  ),
+                  signupBtn(),
                 ],
               ),
             ),
           ),
         ],
         crossAxisAlignment: CrossAxisAlignment.start,
+      ),
+    );
+  }
+
+  Widget signupBtn() {
+    return SizedBox(
+      width: double.infinity,
+      height: 55,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.0),
+          ),
+        ),
+        onPressed: () {
+          if (_fromkey.currentState!.validate()) {
+            //   userProvider.callRegisterApi(nameController.text, emailController.text, passwordController.text);
+          }
+        },
+        child: const Text('Sign Up'),
       ),
     );
   }
