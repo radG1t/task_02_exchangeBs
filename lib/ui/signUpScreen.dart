@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'mainWrapper.dart';
-import 'package:task_02/main.dart';
+import 'package:task_02/ui/mainWrapper.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -204,7 +203,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
           if (_fromkey.currentState!.validate() ||
               _fromkey2.currentState!.validate() ||
               _fromkey3.currentState!.validate()) {
-            //   userProvider.callRegisterApi(nameController.text, emailController.text, passwordController.text);
+            Navigator.pushReplacement(
+                this.context,
+                MaterialPageRoute(
+                  builder: (context) => const MainWrapper(),
+                ));
+            // userProvider.callRegisterApi(nameController.text,
+            //     emailController.text, passwordController.text);
           }
         },
         child: const Text(

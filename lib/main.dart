@@ -18,9 +18,9 @@ void main() {
       ChangeNotifierProvider(
         create: (context) => CryptoDataProvider(),
       ),
-      ChangeNotifierProvider(
-        create: (context) => UserDataProvider(),
-      ),
+      // ChangeNotifierProvider(
+      //   create: (context) => UserDataProvider(),
+      // ),
     ],
     child: const MyMaterialApp(),
   ));

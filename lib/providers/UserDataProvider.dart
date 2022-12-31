@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+/* import 'package:flutter/cupertino.dart';
+
 import 'package:task_02/models/UserModel.dart';
 import 'package:task_02/network/responseModel.dart';
 import 'package:task_02/network/apiProvider.dart';
@@ -41,6 +42,7 @@ class UserDataProvider extends ChangeNotifier {
     }
   }
 
+
   // callLoginApi(email, password) async {
   //
   //   loginStatus = Status.LOADING;
@@ -75,7 +77,10 @@ class UserDataProvider extends ChangeNotifier {
   //   loginStatus = null;
   // }
 }
+  */
 
+
+  
 /*
 import 'package:task_02/models/UserModel.dart';
 import 'package:task_02/ui/signUpScreen.dart';
