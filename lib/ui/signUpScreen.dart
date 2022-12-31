@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -29,7 +31,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
 
     return Scaffold(
       resizeToAvoidBottomInset:
@@ -179,6 +180,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: height * 0.02,
                   ),
                   signupBtn(),
+                  Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+                    SizedBox(
+                      height: height * 0.1,
+                    ),
+                    Text('already have an account ?'),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    logInBtn(),
+                  ]),
                 ],
               ),
             ),
@@ -200,23 +211,52 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
         ),
         onPressed: () {
-          if (_fromkey.currentState!.validate() ||
-              _fromkey2.currentState!.validate() ||
+          if (_fromkey.currentState!.validate() &&
+              _fromkey2.currentState!.validate() &&
+              _fromkey3.currentState!.validate()) {
+            // userProvider.callRegisterApi(nameController.text,
+            //     emailController.text, passwordController.text);
+
+            Navigator.pushReplacement(
+                this.context,
+                MaterialPageRoute(
+                  builder: (context) => const MainWrapper(),
+                ));
+          }
+        },
+        child: const Text(
+          'Sign Up',
+        ),
+      ),
+    );
+  }
+
+  Widget logInBtn() {
+    return SizedBox(
+      width: double.infinity,
+      height: 55,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          side: BorderSide(color: Colors.blue),
+          backgroundColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.0),
+          ),
+        ),
+        onPressed: () {
+          if (_fromkey.currentState!.validate() &&
+              _fromkey2.currentState!.validate() &&
               _fromkey3.currentState!.validate()) {
             Navigator.pushReplacement(
                 this.context,
                 MaterialPageRoute(
                   builder: (context) => const MainWrapper(),
                 ));
-            // userProvider.callRegisterApi(nameController.text,
-            //     emailController.text, passwordController.text);
           }
         },
         child: const Text(
-          'Sign Up',
-          // style: GoogleFonts.ubuntu(
-          //     fontSize: height * 0.035,
-          //     color: Theme.of(context).unselectedWidgetColor),
+          'log in',
+          style: TextStyle(color: Colors.blue),
         ),
       ),
     );

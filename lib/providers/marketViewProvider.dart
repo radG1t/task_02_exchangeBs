@@ -16,7 +16,7 @@ class MarketViewProvider extends ChangeNotifier {
         dataFuture = AllCryptoModel.fromJson(response.data);
         state = ResponseModel.completed(dataFuture);
       } else {
-        state = ResponseModel.error('smth wrong plz try again..');
+        state = ResponseModel.error('something wrong please try again..');
       }
     } catch (e) {
       state = ResponseModel.error('check your connection!');

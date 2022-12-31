@@ -1,4 +1,6 @@
-/* import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+
+import 'ui_helper/ShimmerMartketWidget.dart';
 
 class MarketViewPage extends StatelessWidget {
   const MarketViewPage({super.key});
@@ -6,14 +8,16 @@ class MarketViewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(
+      /* body: Center(
         child: Text('MarketView Page'),
-      ),
+
+      ),*/
+      body: ShimmerMarketWidget(),
     );
   }
 }
-*/
 
+/*
 import 'dart:async';
 
 import 'package:cached_network_image/cached_network_image.dart';
@@ -46,7 +50,7 @@ class _MarketViewPageState extends State<MarketViewPage> {
     super.initState();
 
     final marketProvider =
-        Provider.of<MarketViewProvider>(context, listen: false);
+        Provider.of<MarketViewProvider>(context, listen: true); //false
     marketProvider.getCryptoData();
 
     timer = Timer.periodic(const Duration(seconds: 20),
@@ -101,23 +105,28 @@ class _MarketViewPageState extends State<MarketViewPage> {
                           padding: const EdgeInsets.all(8.0),
                           child: TextField(
                             onChanged: (value) {
-                              // List<CryptoData>? searchList = [];
-                              //
-                              // for(CryptoData crypto in model!){
-                              //   if(crypto.name!.toLowerCase().contains(value) || crypto.symbol!.toLowerCase().contains(value)){
-                              //     searchList.add(crypto);
-                              //   }
-                              // }
-                              // marketViewProvider.configSearch(searchList);
+                              List<CryptoData>? searchList = [];
+
+                              for (CryptoData crypto in model!) {
+                                if (crypto.name!
+                                        .toLowerCase()
+                                        .contains(value) ||
+                                    crypto.symbol!
+                                        .toLowerCase()
+                                        .contains(value)) {
+                                  searchList.add(crypto);
+                                }
+                              }
+                              //  marketViewProvider.configSearch(searchList);
                             },
-                            // controller: searchController,
+                            //     controller: searchController,
                             decoration: InputDecoration(
                               hintStyle: textTheme.bodySmall,
                               prefixIcon: Icon(
                                 Icons.search,
                                 color: borderColor,
                               ),
-                              // hintText: AppLocalizations.of(context)!.search,
+                              //  hintText: AppLocalizations.of(context)!.search,
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: borderColor),
                                 borderRadius:
@@ -168,7 +177,7 @@ class _MarketViewPageState extends State<MarketViewPage> {
                                 padding: const EdgeInsets.only(top: 8.0),
                                 child: InkWell(
                                   onTap: () {
-                                    //   Navigator.push(context, MaterialPageRoute(builder: (context) => TokenDetailPage(cryptoData: model[index])));
+                                    //  Navigator.push(context, MaterialPageRoute(builder: (context) => TokenDetailPage(cryptoData: model[index])));
                                   },
                                   child: SizedBox(
                                     height: height * 0.075,
@@ -246,7 +255,7 @@ class _MarketViewPageState extends State<MarketViewPage> {
                                                 child: SvgPicture.network(
                                                   "https://s3.coinmarketcap.com/generated/sparklines/web/30d/2781/$tokenId.svg",
                                                 ))),
-                                        // Spacer(),
+                                        Spacer(),
                                         Expanded(
                                           child: Padding(
                                             padding: const EdgeInsets.only(
@@ -303,3 +312,4 @@ class _MarketViewPageState extends State<MarketViewPage> {
     );
   }
 }
+*/

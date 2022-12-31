@@ -57,7 +57,9 @@ class _HomePageState extends State<HomePage> {
           actions: const [
             ThemeSwitcher(),
           ],
-          title: const Text('just a Title as String'),
+          title: const Text(
+            'Exchange App',
+          ),
           centerTitle: true,
           titleTextStyle: textTheme.titleLarge,
         ),
@@ -97,15 +99,14 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                /*     SizedBox(
+                SizedBox(
                   width: double.infinity,
                   height: 30,
                   child: Marquee(
                     text: '** this is a place for news in application ** ',
                     style: textTheme.bodySmall,
                   ),
-             
-                ),  */
+                ),
                 Padding(
                   padding: const EdgeInsets.only(left: 5, right: 5, top: 5),
                   child: Row(
@@ -126,7 +127,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       const SizedBox(
-                        width: 10,
+                        width: 15,
                       ),
                       Expanded(
                         child: ElevatedButton(
@@ -148,6 +149,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(
+                    top: 10,
                     left: 5,
                     right: 5,
                   ),

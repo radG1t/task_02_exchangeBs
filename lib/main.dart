@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import 'package:task_02/providers/ThemeProvider.dart';
-import 'package:task_02/providers/UserDataProvider.dart';
 import 'package:task_02/providers/cryptoDataProvider.dart';
 import 'package:task_02/ui/signUpScreen.dart';
 
@@ -44,7 +43,6 @@ class _MyMaterialAppState extends State<MyMaterialApp> {
         debugShowCheckedModeBanner: false,
         home: Directionality(
           textDirection: TextDirection.ltr,
-          // child: MainWrapper(),
           child: SignUpScreen(),
         ),
       );
