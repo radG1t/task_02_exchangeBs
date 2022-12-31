@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'mainWrapper.dart';
+import 'package:task_02/main.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});

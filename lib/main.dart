@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+
 import 'package:task_02/providers/ThemeProvider.dart';
 import 'package:task_02/providers/UserDataProvider.dart';
 import 'package:task_02/providers/cryptoDataProvider.dart';
-import 'package:task_02/ui/mainWrapper.dart';
 import 'package:task_02/ui/signUpScreen.dart';
-import 'package:task_02/ui/ui_helper/ThemeSwitcher.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,7 +42,7 @@ class _MyMaterialAppState extends State<MyMaterialApp> {
         theme: MyThemes.lightTheme,
         darkTheme: MyThemes.darkTheme,
         debugShowCheckedModeBanner: false,
-        home: const Directionality(
+        home: Directionality(
           textDirection: TextDirection.ltr,
           // child: MainWrapper(),
           child: SignUpScreen(),
