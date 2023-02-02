@@ -5,10 +5,16 @@ class WatchListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    int timeleft = 5;
+    return Scaffold(
       body: Center(
-        child: Text('WatchList Page'),
+        child: Column(
+          children: [
+            Text(timeleft.toString()),
+          ],
+        ),
       ),
     );
   }
 }
+//timer stopwatch or wtf
